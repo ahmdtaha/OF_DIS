@@ -27,7 +27,11 @@ I want to give credit to the following github repos
 ## Technical Details
 The original OF_DIS C++ implementation provides handles for optical flow and depth from stereo. This python wrapper provides handle for optical flow only. This can be easily altered by changing the compiler preprocessor directives in the setup.py. Currently, it is set to SELECTMODE=1, SELECTCHANNEL=3
 
-#Fast Optical Flow using Dense Inverse Search (DIS) -- Original Readme#
+
+#Original Readme#
+
+#Fast Optical Flow using Dense Inverse Search (DIS)#
+
 Our code is released only for scientific or personal use.
 Please contact us for commercial use.
 
