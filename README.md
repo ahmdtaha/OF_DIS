@@ -1,5 +1,33 @@
-# Fast Optical Flow using Dense Inverse Search (DIS) #
+# Pyhton Wrapper for Fast Optical Flow using Dense Inverse Search (DIS) #
 
+Python wrapper for OF_DIS C++ optical flow implementation. This is super fast and accurate optical flow method. This python wrapper has dependency on OpenCV, Eigen libraries. These dependencies are required by the original C++ version and thus required by the python wrapper. For real time performance, one can additionally resize the images to a smaller size.
+
+Run the following steps to download, install and demo the library:
+
+```Shell
+  git clone https://github.com/ahmdtaha/OF_DIS.git
+  cd OF_DIS/
+  python setup.py build_ext -i
+  python demo.py
+```
+**Please update both the library and include dirs in the setup.py script to reflect your libraries pathes.** It is recommended that you compile and build the original C++ code first to make sure the needed libraries are installed correctly on your machine. 
+
+The demo.py script passes two images filenames as strings to the C++ code which loads and computes the optical flow between the images. The C++ code return cv::Mat, recieved by python as numpy array. The numpy array contains optical flow information in "flo" format.
+ 
+The following utils modules are provides to visualize and save the flo array into RGB image format
+
+* visualize_flo.py
+* flo_utils.py
+
+I want to give credit to the following github repos
+
+* [cython_opencvMat](https://github.com/solivr/cython_opencvMat) provides steps on how to convert the opencv Mat into numpy
+* [flow-code-python](https://github.com/Johswald/flow-code-python) provides tutorial on how to read, write and visualize flo format
+
+## Technical Details
+The original OF_DIS C++ implementation provides handles for optical flow and depth from stereo. This python wrapper provides handle for optical flow only. This can be easily altered by changing the compiler preprocessor directives in the setup.py. Currently, it is set to SELECTMODE=1, SELECTCHANNEL=3
+
+#Fast Optical Flow using Dense Inverse Search (DIS) -- Original Readme#
 Our code is released only for scientific or personal use.
 Please contact us for commercial use.
 
@@ -22,7 +50,7 @@ Is you use the variational refinement, please additionally cite:
   
   
   
-## Compiling ##
+## Compiling The C++ Code##
 
 The program was only tested under a 64-bit Linux distribution.
 SSE instructions from built-in X86 functions for GNU GCC were used.
